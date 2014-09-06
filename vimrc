@@ -18,16 +18,15 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
-
 if has("gui_running")
-   set guifont=Inconsolata\ 13
+   set guifont=Inconsolata\ 16
    set t_Co=256
+   let g:solarized_termcolors=256
    syntax enable
    set background=dark
-   " set background=light
+   "set background=light
    colorscheme solarized
 else
-" terminal color settings
    set t_Co=256
    syntax enable
    set background=dark
@@ -332,6 +331,9 @@ let g:tagbar_autofocus = 1
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1 
 
+
+" --- vim-markdown
+let g:vim_markdown_initial_foldlevel=1
 
 "--- go.vim
 filetype off

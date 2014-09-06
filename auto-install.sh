@@ -16,7 +16,7 @@ die() {
 
 git clone https://github.com/rubinette/vimrc.git "$VIMHOME"
 git clone https://github.com/Shougo/neobundle.vim.git "$VIMHOME/bundle/neobundle.vim"
-
+ln "$VIMHOME/vimrc" ~/.vimrc
 #cd "$VIMHOME"
 #git submodule update --init
 
