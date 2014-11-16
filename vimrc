@@ -19,7 +19,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 if has("gui_running")
-   set guifont=Inconsolata\ 16
+   "set guifont=Inconsolata:h20
+   set guifont=Osaka-Mono:h20
    set t_Co=256
    let g:solarized_termcolors=256
    syntax enable
