@@ -19,8 +19,8 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 if has("gui_running")
-   "set guifont=Inconsolata:h20
-   set guifont=Osaka-Mono:h20
+   "set guifont=Inconsolatazi4:h20
+   "set guifont=Osaka-Mono:h20
    set t_Co=256
    let g:solarized_termcolors=256
    syntax enable
@@ -188,20 +188,18 @@ cmap cd. lcd %:p:h
 " PROGRAMMING SHORTCUTS
 "--------------------------------------------------------------------------- 
 
-" Ctrl-[ jump out of the tag stack (undo Ctrl-])
-map <C-[> <ESC>:po<CR>
-
-" ,g generates the header guard
-map <leader>g :call IncludeGuard()<CR>
-fun! IncludeGuard()
-   let basename = substitute(bufname(""), '.*/', '', '')
-   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
-   call append(0, "#ifndef " . guard)
-   call append(1, "#define " . guard)
-   call append( line("$"), "#endif // for #ifndef " . guard)
-endfun
-
-
+"" Ctrl-[ jump out of the tag stack (undo Ctrl-])
+"map <C-[> <ESC>:po<CR>
+"
+"" ,g generates the header guard
+"map <leader>g :call IncludeGuard()<CR>
+"fun! IncludeGuard()
+"   let basename = substitute(bufname(""), '.*/', '', '')
+"   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
+"   call append(0, "#ifndef " . guard)
+"   call append(1, "#define " . guard)
+"   call append( line("$"), "#endif // for #ifndef " . guard)
+"endfun
 
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -291,7 +289,7 @@ endif
 let g:CommandTMaxHeight = 15
 
 " --- SuperTab
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
 " let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
 
@@ -322,12 +320,44 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1 " US layout
 
-" --- TagBar
-" toggle TagBar with F7
-nnoremap <silent> <F7> :TagbarToggle<CR> 
-" set focus to TagBar when opening it
-let g:tagbar_autofocus = 1
 
+" --- NERDTree
+map <silent> <F7> :NERDTreeToggle<CR>
+
+
+" --- TagBar
+" toggle TagBar with F8
+map <silent> <F8> :TagbarToggle<CR> 
+" set focus to TagBar when opening it
+" let g:tagbar_autofocus = 1
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1 
@@ -336,9 +366,22 @@ let g:gitgutter_enabled = 1
 " --- vim-markdown
 let g:vim_markdown_initial_foldlevel=1
 
-"--- go.vim
-filetype off
-filetype plugin indent off
-" set runtimepath+=$GOROOT/misc/vim
+""--- go.vim
+"filetype off
+"filetype plugin indent off
+"" set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
-" syntax on
+"" syntax on
+
+"--- vim-go 
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)

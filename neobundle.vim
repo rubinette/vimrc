@@ -8,7 +8,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/vimproc'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+"NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'Lokaltog/vim-easymotion'
@@ -29,7 +29,9 @@ NeoBundle 'tpope/vim-commentary'
 "NeoBundle 'MarcWeber/vim-addon-mw-utils'
 "NeoBundle 'honza/vim-snippets'
 NeoBundle 'nsf/gocode'
+"NeoBundle 'cespare/vim-golang'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'fatih/vim-go'
 call neobundle#end()
 filetype indent on
 NeoBundleCheck
