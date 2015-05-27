@@ -32,6 +32,9 @@ NeoBundle 'nsf/gocode'
 "NeoBundle 'cespare/vim-golang'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'junegunn/goyo.vim'
+NeoBundle 'amix/vim-zenroom2'
+
 call neobundle#end()
 filetype indent on
 NeoBundleCheck
