@@ -19,7 +19,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'  
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'wincent/Command-T'
-NeoBundle 'Lokaltog/vim-powerline'
 "NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -32,9 +31,6 @@ NeoBundle 'nsf/gocode'
 "NeoBundle 'cespare/vim-golang'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'junegunn/goyo.vim'
-NeoBundle 'amix/vim-zenroom2'
-
 call neobundle#end()
 filetype indent on
 NeoBundleCheck

@@ -20,18 +20,18 @@ syntax on		" syntax highlight
 set hlsearch		" search highlighting
 if has("gui_running")
    "set guifont=PragmataPro\ for\ Powerline\ 14
-   set guifont=PragmataPro:h18
+   "set guifont=PragmataPro:h14
+   "set guifont=InconsolataForPowerline-g:h14
+   set guifont=PragmataProForPowerline:h14
    set t_Co=256
    let g:solarized_termcolors=256
    syntax enable
    set background=dark
-   "set background=light
    colorscheme solarized
 else
    set t_Co=256
    syntax enable
    set background=dark
-   " set background=light
    colorscheme solarized
 endif
 
@@ -253,10 +253,14 @@ endfun
 "--------------------------------------------------------------------------- 
 " PLUGIN SETTINGS
 "--------------------------------------------------------------------------- 
-"
-"
-"" ------- vim-latex - many latex shortcuts and snippets {
 
+
+" --- powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" --- vim-latex - many latex shortcuts and snippets {
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
 set shellslash
